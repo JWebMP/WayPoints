@@ -18,6 +18,7 @@ package com.jwebmp.plugins.waypoints;
 
 import com.jwebmp.core.Page;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.core.services.IPageConfigurator;
 import jakarta.validation.constraints.NotNull;
@@ -29,77 +30,89 @@ import jakarta.validation.constraints.NotNull;
  * file://
  */
 @PluginInformation(pluginName = "JQuery WayPoints",
-        pluginDescription = "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element.",
-        pluginUniqueName = "jwebmp-waypoints",
-        pluginVersion = "4.0.1",
-        pluginCategories = "waypoints,ui,web ui, framework",
-        pluginSubtitle = "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element.",
-        pluginSourceUrl = "https://github.com/imakewebthings/waypoints.git",
-        pluginWikiUrl = "https://github.com/GedMarc/JWebMP-JQueryWayPoints/wiki",
-        pluginGitUrl = "https://github.com/GedMarc/JWebMP-JQueryWayPoints",
-        pluginIconUrl = "bower_components/waypoints/waypointsicon.jpg",
-        pluginIconImageUrl = "bower_components/waypoints/waypointslogo.jpg",
-        pluginOriginalHomepage = "https://github.com/imakewebthings/waypoints.git",
-        pluginDownloadUrl = "https://jwebmp.com/?p=WayPoints")
+		pluginDescription = "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element.",
+		pluginUniqueName = "jwebmp-waypoints",
+		pluginVersion = "4.0.1",
+		pluginCategories = "waypoints,ui,web ui, framework",
+		pluginSubtitle = "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element.",
+		pluginSourceUrl = "https://github.com/imakewebthings/waypoints.git",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-JQueryWayPoints/wiki",
+		pluginGitUrl = "https://github.com/GedMarc/JWebMP-JQueryWayPoints",
+		pluginIconUrl = "bower_components/waypoints/waypointsicon.jpg",
+		pluginIconImageUrl = "bower_components/waypoints/waypointslogo.jpg",
+		pluginOriginalHomepage = "https://github.com/imakewebthings/waypoints.git",
+		pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.jquery/jwebmp-jquery-waypoints",
+		pluginGroupId = "com.jwebmp.plugins.jquery",
+		pluginArtifactId = "jwebmp-jquery-waypoints",
+		pluginModuleName = "com.jwebmp.plugins.waypoints",
+		pluginStatus = PluginStatus.Released
+)
 public class WayPointsPageConfigurator
-        implements IPageConfigurator<WayPointsPageConfigurator> {
-    /**
-     * If this configurator is enabled
-     */
-    private static boolean enabled = true;
-
-    /**
-     * The default page configurator for waypoints
-     */
-    public WayPointsPageConfigurator() {
-        //Nothing Needed
-    }
-
-    /**
-     * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
-     * <p>
-     * If this configurator is enabled
-     *
-     * @return the enabled (type boolean) of this AngularAnimatedChangePageConfigurator object.
-     */
-    public static boolean isEnabled() {
-        return WayPointsPageConfigurator.enabled;
-    }
-
-    /**
-     * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
-     * <p>
-     * If this configurator is enabled
-     *
-     * @param mustEnable the enabled of this AngularAnimatedChangePageConfigurator object.
-     */
-    public static void setEnabled(boolean mustEnable) {
-        WayPointsPageConfigurator.enabled = mustEnable;
-    }
-
-
-    /**
-     * The 3 meta tags *must* come first in the head; any other head content must come *after* these tags
-     * <p>
-     * HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries WARNING: Respond.js doesn't work if you view the page
-     * via file://
-     *
-     * @return
-     */
-    @NotNull
-    @Override
-    public Page<?> configure(Page<?> page) {
-        if (!page.isConfigured() && enabled()) {
-            JQueryPageConfigurator.setRequired(true);
-            page.getBody()
-                    .addJavaScriptReference(WayPointsReferencePool.WayPointsCoreReference.getJavaScriptReference());
-        }
-        return page;
-    }
-
-    @Override
-    public boolean enabled() {
-        return WayPointsPageConfigurator.enabled;
-    }
-
+		implements IPageConfigurator<WayPointsPageConfigurator>
+{
+	/**
+	 * If this configurator is enabled
+	 */
+	private static boolean enabled = true;
+	
+	/**
+	 * The default page configurator for waypoints
+	 */
+	public WayPointsPageConfigurator()
+	{
+		//Nothing Needed
+	}
+	
+	/**
+	 * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @return the enabled (type boolean) of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static boolean isEnabled()
+	{
+		return WayPointsPageConfigurator.enabled;
+	}
+	
+	/**
+	 * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @param mustEnable the enabled of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static void setEnabled(boolean mustEnable)
+	{
+		WayPointsPageConfigurator.enabled = mustEnable;
+	}
+	
+	
+	/**
+	 * The 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+	 * <p>
+	 * HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries WARNING: Respond.js doesn't work if you view the page
+	 * via file://
+	 *
+	 * @return
+	 */
+	@NotNull
+	@Override
+	public Page<?> configure(Page<?> page)
+	{
+		if (!page.isConfigured() && enabled())
+		{
+			JQueryPageConfigurator.setRequired(true);
+			page.getBody()
+			    .addJavaScriptReference(WayPointsReferencePool.WayPointsCoreReference.getJavaScriptReference());
+		}
+		return page;
+	}
+	
+	@Override
+	public boolean enabled()
+	{
+		return WayPointsPageConfigurator.enabled;
+	}
+	
 }
