@@ -31,7 +31,7 @@ import jakarta.validation.constraints.NotNull;
  */
 @PluginInformation(pluginName = "JQuery WayPoints",
 		pluginDescription = "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element.",
-		pluginUniqueName = "jwebmp-waypoints",
+		pluginUniqueName = "waypoints",
 		pluginVersion = "4.0.1",
 		pluginCategories = "waypoints,ui,web ui, framework",
 		pluginSubtitle = "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element.",
