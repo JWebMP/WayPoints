@@ -10,7 +10,7 @@
     <groupId>com.jwebmp.plugins.jquery</groupId>
     <artifactId>jwebmp-jquery-waypoints</artifactId>
     <packaging>jar</packaging>
-
+    <version>0.0.0_0-SNAPSHOT</version>
     <name>WayPoints</name>
     <description>The JWebMP Implementation for a new basic component</description>
     <url>https://github.com/GedMarc/JWebMP-WayPoints</url>
