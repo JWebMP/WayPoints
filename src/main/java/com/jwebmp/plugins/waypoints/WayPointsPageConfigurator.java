@@ -16,12 +16,12 @@
  */
 package com.jwebmp.plugins.waypoints;
 
-import com.jwebmp.core.Page;
-import com.jwebmp.core.plugins.PluginInformation;
-import com.jwebmp.core.plugins.PluginStatus;
-import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
-import com.jwebmp.core.services.IPageConfigurator;
-import jakarta.validation.constraints.NotNull;
+import com.jwebmp.core.*;
+import com.jwebmp.core.base.angular.services.annotations.*;
+import com.jwebmp.core.base.angular.services.annotations.angularconfig.*;
+import com.jwebmp.core.plugins.*;
+import com.jwebmp.core.services.*;
+import jakarta.validation.constraints.*;
 
 /**
  * The 3 meta tags *must* come first in the head; any other head content must come *after* these tags
@@ -47,46 +47,11 @@ import jakarta.validation.constraints.NotNull;
 		pluginModuleName = "com.jwebmp.plugins.waypoints",
 		pluginStatus = PluginStatus.Released
 )
+@TsDependency(value = "waypoints",version = "^4.0.1")
+@NgScript("node_modules/waypoints/lib/jquery.waypoints.js")
 public class WayPointsPageConfigurator
 		implements IPageConfigurator<WayPointsPageConfigurator>
 {
-	/**
-	 * If this configurator is enabled
-	 */
-	private static boolean enabled = true;
-	
-	/**
-	 * The default page configurator for waypoints
-	 */
-	public WayPointsPageConfigurator()
-	{
-		//Nothing Needed
-	}
-	
-	/**
-	 * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
-	 * <p>
-	 * If this configurator is enabled
-	 *
-	 * @return the enabled (type boolean) of this AngularAnimatedChangePageConfigurator object.
-	 */
-	public static boolean isEnabled()
-	{
-		return WayPointsPageConfigurator.enabled;
-	}
-	
-	/**
-	 * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
-	 * <p>
-	 * If this configurator is enabled
-	 *
-	 * @param mustEnable the enabled of this AngularAnimatedChangePageConfigurator object.
-	 */
-	public static void setEnabled(boolean mustEnable)
-	{
-		WayPointsPageConfigurator.enabled = mustEnable;
-	}
-	
 	
 	/**
 	 * The 3 meta tags *must* come first in the head; any other head content must come *after* these tags
@@ -100,19 +65,14 @@ public class WayPointsPageConfigurator
 	@Override
 	public Page<?> configure(Page<?> page)
 	{
-		if (!page.isConfigured() && enabled())
-		{
-			JQueryPageConfigurator.setRequired(true);
-			page.getBody()
-			    .addJavaScriptReference(WayPointsReferencePool.WayPointsCoreReference.getJavaScriptReference());
-		}
+
 		return page;
 	}
 	
 	@Override
 	public boolean enabled()
 	{
-		return WayPointsPageConfigurator.enabled;
+		return true;
 	}
 	
 }

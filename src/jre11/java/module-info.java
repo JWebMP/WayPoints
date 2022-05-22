@@ -3,7 +3,7 @@ import com.jwebmp.plugins.waypoints.WayPointsInclusionModule;
 import com.jwebmp.plugins.waypoints.WayPointsPageConfigurator;
 
 module com.jwebmp.plugins.waypoints {
-	requires transitive com.jwebmp.core;
+	requires transitive com.jwebmp.core.angular;
 
 	exports com.jwebmp.plugins.waypoints;
 
