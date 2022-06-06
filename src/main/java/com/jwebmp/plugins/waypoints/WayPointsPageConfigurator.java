@@ -17,8 +17,8 @@
 package com.jwebmp.plugins.waypoints;
 
 import com.jwebmp.core.*;
-import com.jwebmp.core.base.angular.services.annotations.*;
-import com.jwebmp.core.base.angular.services.annotations.angularconfig.*;
+import com.jwebmp.core.base.angular.client.annotations.angularconfig.*;
+import com.jwebmp.core.base.angular.client.annotations.typescript.*;
 import com.jwebmp.core.plugins.*;
 import com.jwebmp.core.services.*;
 import jakarta.validation.constraints.*;
@@ -47,7 +47,7 @@ import jakarta.validation.constraints.*;
 		pluginModuleName = "com.jwebmp.plugins.waypoints",
 		pluginStatus = PluginStatus.Released
 )
-@TsDependency(value = "waypoints",version = "^4.0.1")
+@TsDependency(value = "waypoints", version = "^4.0.1")
 @NgScript("node_modules/waypoints/lib/jquery.waypoints.js")
 public class WayPointsPageConfigurator
 		implements IPageConfigurator<WayPointsPageConfigurator>
