@@ -16,11 +16,12 @@
  */
 package com.jwebmp.plugins.waypoints;
 
-import com.jwebmp.core.base.angular.client.annotations.angularconfig.*;
-import com.jwebmp.core.base.angular.client.annotations.typescript.*;
-import com.jwebmp.core.plugins.*;
-import com.jwebmp.core.services.*;
-import jakarta.validation.constraints.*;
+import com.jwebmp.core.base.angular.client.annotations.angularconfig.NgScript;
+import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
+import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
+import com.jwebmp.core.services.IPage;
+import com.jwebmp.core.services.IPageConfigurator;
 
 /**
  * The 3 meta tags *must* come first in the head; any other head content must come *after* these tags
@@ -29,22 +30,22 @@ import jakarta.validation.constraints.*;
  * file://
  */
 @PluginInformation(pluginName = "JQuery WayPoints",
-        pluginDescription = "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element.",
-        pluginUniqueName = "waypoints",
-        pluginVersion = "4.0.1",
-        pluginCategories = "waypoints,ui,web ui, framework",
-        pluginSubtitle = "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element.",
-        pluginSourceUrl = "https://github.com/imakewebthings/waypoints.git",
-        pluginWikiUrl = "https://github.com/GedMarc/JWebMP-JQueryWayPoints/wiki",
-        pluginGitUrl = "https://github.com/GedMarc/JWebMP-JQueryWayPoints",
-        pluginIconUrl = "bower_components/waypoints/waypointsicon.jpg",
-        pluginIconImageUrl = "bower_components/waypoints/waypointslogo.jpg",
-        pluginOriginalHomepage = "https://github.com/imakewebthings/waypoints.git",
-        pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.jquery/jwebmp-jquery-waypoints",
-        pluginGroupId = "com.jwebmp.plugins.jquery",
-        pluginArtifactId = "jwebmp-jquery-waypoints",
-        pluginModuleName = "com.jwebmp.plugins.waypoints",
-        pluginStatus = PluginStatus.Released
+                   pluginDescription = "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element.",
+                   pluginUniqueName = "waypoints",
+                   pluginVersion = "4.0.1",
+                   pluginCategories = "waypoints,ui,web ui, framework",
+                   pluginSubtitle = "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element.",
+                   pluginSourceUrl = "https://github.com/imakewebthings/waypoints.git",
+                   pluginWikiUrl = "https://github.com/GedMarc/JWebMP-JQueryWayPoints/wiki",
+                   pluginGitUrl = "https://github.com/GedMarc/JWebMP-JQueryWayPoints",
+                   pluginIconUrl = "bower_components/waypoints/waypointsicon.jpg",
+                   pluginIconImageUrl = "bower_components/waypoints/waypointslogo.jpg",
+                   pluginOriginalHomepage = "https://github.com/imakewebthings/waypoints.git",
+                   pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.jquery/jwebmp-jquery-waypoints",
+                   pluginGroupId = "com.jwebmp.plugins.jquery",
+                   pluginArtifactId = "jwebmp-jquery-waypoints",
+                   pluginModuleName = "com.jwebmp.plugins.waypoints",
+                   pluginStatus = PluginStatus.Released
 )
 @TsDependency(value = "waypoints", version = "^4.0.1")
 @NgScript("node_modules/waypoints/lib/jquery.waypoints.js")
@@ -60,7 +61,6 @@ public class WayPointsPageConfigurator
      *
      * @return
      */
-    @NotNull
     @Override
     public IPage<?> configure(IPage<?> page)
     {
