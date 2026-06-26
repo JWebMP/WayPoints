@@ -12,5 +12,5 @@ module com.jwebmp.plugins.waypoints {
     provides IPageConfigurator with WayPointsPageConfigurator;
     provides com.guicedee.client.services.config.IGuiceScanModuleInclusions with WayPointsInclusionModule;
 
-    opens com.jwebmp.plugins.waypoints to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.plugins.waypoints to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
 }
